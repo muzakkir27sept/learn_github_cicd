@@ -1,11 +1,27 @@
-name: First workflow
-on: workflow_dispatch
+# name: First workflow
+# on: workflow_dispatch
+# jobs:
+#   first_job: 
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: just print
+#         run: echo "Hello world"
+#       - name: print bye
+#         run: echo "bye bye " 
+
+name: second workflow
+on: push
 jobs:
-  first_job: 
+  test: 
     runs-on: ubuntu-latest
     steps:
-      - name: just print
-        run: echo "Hello world"
-      - name: print bye
-        run: echo "bye bye " 
-
+      - name: get code
+        uses: actions/checkout@v3
+      - name: install nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: install dependencies
+        run: npm ci
+      - name: run test
+        run: npm test
