@@ -24,8 +24,8 @@ jobs:
       - name: install dependencies
         run: npm ci
       - name: run test
-        run: npm test
+        run: npm run test
       - name: run lint test
-        run: npm lint
+        run: npm run lint
       - name: build test run
-        run: npm build
+        run: npm run build
