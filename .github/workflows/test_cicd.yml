@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: checkfile01
-          path: checkfile
+          path: checkfile.txt
 
   check02:
     needs: check01
