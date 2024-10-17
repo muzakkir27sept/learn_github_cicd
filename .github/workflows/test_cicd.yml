@@ -43,8 +43,8 @@ jobs:
       - name: upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: checkfile
-          path: checkfile.txt
+          name: checkfile01
+          path: checkfile
 
   check02:
     needs: check01
@@ -54,8 +54,8 @@ jobs:
         run: echo "hello this muzakkir" >> checkfile.txt
       - name: check the text
         run: cat checkfile.txt
-      - name: donload artifacts
-        uses: actions/download-artifact
-        with:
-          name: download_checkfile
-          path: checkfile.txt
+      # - name: donload artifacts
+      #   uses: actions/download-artifact
+      #   with:
+      #     name: download_checkfile
+      #     path: checkfile.txt
