@@ -39,7 +39,7 @@ jobs:
       - name: check for push
         uses: actions/checkout@v3
       - name: create file
-        run: cat checkfile.txt
+        run: touch checkfile.txt
 
   check02:
     needs: check01
