@@ -54,3 +54,8 @@ jobs:
         run: echo "hello this muzakkir" >> checkfile.txt
       - name: check the text
         run: cat checkfile.txt
+      - name: donload artifacts
+        uses: actions/download-artifact
+        with:
+          name: download_checkfile
+          path: checkfile.txt
