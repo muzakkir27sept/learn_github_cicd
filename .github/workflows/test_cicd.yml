@@ -40,6 +40,11 @@ jobs:
         uses: actions/checkout@v3
       - name: create file
         run: touch checkfile.txt
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: checkfile
+          path: checkfile.txt
 
   check02:
     needs: check01
