@@ -9,23 +9,43 @@
 #       - name: print bye
 #         run: echo "bye bye " 
 
-name: second workflow
+# name: second workflow
+# on: push
+# jobs:
+#   test: 
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: get code
+#         uses: actions/checkout@v3
+#       - name: install nodejs
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: 18
+#       - name: install dependencies
+#         run: npm ci
+#       - name: run test
+#         run: npm run test
+#       - name: run lint test
+#         run: npm run lint
+#       - name: build test run
+#         run: npm run build
+
+name: tests_jobs
 on: push
 jobs:
-  test: 
+  check01:
     runs-on: ubuntu-latest
     steps:
-      - name: get code
+      - name: check for push
         uses: actions/checkout@v3
-      - name: install nodejs
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - name: install dependencies
-        run: npm ci
-      - name: run test
-        run: npm run test
-      - name: run lint test
-        run: npm run lint
-      - name: build test run
-        run: npm run build
+      - name: create file
+        run: cat checkfile.txt
+
+  check02:
+    needs: check01
+    runs-on: ubuntu-latest 
+    steps:
+      - name: write in file
+        run: echo "hello this muzakkir" >> checkfile.txt
+      - name: check the text
+        run: cat checkfile.txt
